@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TestLab6.Models.DepartmentCourse>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@*<p>
+    @Html.ActionLink("AddCourse", "AddCourse")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DeptName)
+        </th>
+        <th>
+            Operation
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Department.DeptName)
+    </td>
+    
+    <td>
+        @Html.ActionLink("AddCourse", "AddCourse", new { id = item.DeptNo }) |
+        @*@Html.ActionLink("Details", "Details", new { id = item.CrsId }) |*@
+        @Html.ActionLink("Delete", "RemoveCourse", new { id = item.DeptNo })
+    </td>
+</tr>
+    }
+
+</table>
+

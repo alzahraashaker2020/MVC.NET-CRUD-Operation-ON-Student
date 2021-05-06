@@ -1,0 +1,45 @@
+﻿
+@model IEnumerable<TestLab6.Models.Course>
+@{
+    ViewBag.Title = "AddDegree";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@*<h2>AddCourse To @ViewBag.deg.DeptName </h2>*@
+
+<form method="post">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CrsName)
+                </td>
+                <td>
+                    CourseOperation
+                </td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CrsName)
+                </td>
+                <td>
+                    @Html.TextBox("deg." + item.CrsId.ToString())
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <input type="submit" value="Add" class="btn btn-outline-warning" />
+
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

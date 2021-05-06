@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TestLab6.Models.Course>
+@{
+    ViewBag.Title = "RemoveCourse";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h2>Remove course from @ViewBag.dept.DeptName </h2>
+
+<form method="post">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CrsName)
+                </td>
+                <td>
+                    CourseOperation
+                </td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CrsName)
+                </td>
+                <td>
+                    @Html.CheckBox("crs." + item.CrsId.ToString())
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <input type="submit" value="Remove" class="btn btn-outline-warning" />
+
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

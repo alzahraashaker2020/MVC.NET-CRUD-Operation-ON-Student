@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TestLab6.Models.Department>
+@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h2>MakeDepatment take course @ViewBag.crs.CrsName </h2>
+
+<form method="post">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.DeptName)
+                </td>
+                <td>
+                    CourseOperation
+                </td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeptName)
+                </td>
+                <td>
+                    @Html.CheckBox("dep." + item.DeptNo.ToString())
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <input type="submit" value="Add" class="btn btn-outline-warning" />
+
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

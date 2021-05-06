@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TestLab6.Models.Course>
+
+@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h2>AddCourse</h2>
+    <div class="container text-center">
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>New Course</th>
+                        <th>Opertion Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.CrsName</td>
+            <td>@Html.CheckBox("crs." + item.CrsId.ToString())</td>
+        </tr>}
+                </tbody>
+
+            </table>
+            <input type="submit" value="new" class="btn btn-success" />
+        </form>
+    </div>
+
+
+

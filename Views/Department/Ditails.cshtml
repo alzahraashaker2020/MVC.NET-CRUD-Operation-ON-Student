@@ -1,0 +1,27 @@
+﻿@model TestLab6.Models.Department
+@{
+    ViewBag.Title = "Ditails";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<h2>Ditails</h2>
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeptName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeptNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
